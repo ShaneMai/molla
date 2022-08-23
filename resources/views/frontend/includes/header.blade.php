@@ -5,10 +5,10 @@
                     <nav class="main-nav">
                         <ul class="menu sf-arrows">
                             <li><a href="/" >Trang chủ</a></li>
-                            <li><a href="about-us" >Giới thiệu</a></li>
-                            <li><a href="products" >Sản phẩm</a></li>
-                            <li><a href="posts">Blog</a></li>
-                            <li><a href="contact-us">Liên hệ</a></li>
+                            <li><a href="/about-us" >Giới thiệu</a></li>
+                            <li><a href="/products" >Sản phẩm</a></li>
+                            <li><a href="/posts">Blog</a></li>
+                            <li><a href="/contact-us">Liên hệ</a></li>
                         </ul><!-- End .menu -->
                     </nav><!-- End .main-nav -->
 
@@ -40,70 +40,54 @@
 
                     <a href="/wishlist" class="wishlist-link">
                         <i class="fab fa-heart"></i>
-                        <span class="wishlist-count">3</span>
                     </a><!--End .wishlist-link-->
 
-                    <div class="dropdown cart-dropdown">
+                    <div class="dropdown cart-dropdown" id="change-item-cart">
                         <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false" data-display="static">
                             <i class="icon-shopping-cart"></i>
-                            <span class="cart-count">2</span>
-                            <span class="cart-text font-weight-normal">$ 164,00</span>
+                            <span class="cart-count">
+                                @if(Session::has("Cart") != null)
+                                    <span id="total-quanty-show">{{Session::get("Cart")->totalQuanty}}</span>
+                                @else
+                                    <span id="total-quanty-show">0</span>
+                                @endif
+                            </span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-cart-products">
-                                <div class="product">
-                                    <div class="product-cart-details">
-                                        <h4 class="product-title">
-                                            <a href="/products">Beige knitted elastic runner shoes</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $84.00
-                                            </span>
-                                    </div><!-- End .product-cart-details -->
-
-                                    <figure class="product-image-container">
-                                        <a href="/products" class="product-image">
-                                            <img src="{{asset('layouts/images/products/cart/product-1.jpg')}}" alt="product"
-                                                 width="60" height="60">
-                                        </a>
-                                    </figure>
-                                    <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                </div><!-- End .product -->
-
-                                <div class="product">
-                                    <div class="product-cart-details">
-                                        <h4 class="product-title">
-                                            <a href="/products">Blue utility pinafore denim dress</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $76.00
-                                            </span>
-                                    </div><!-- End .product-cart-details -->
-
-                                    <figure class="product-image-container">
-                                        <a href="/products" class="product-image">
-                                            <img src="{{asset('layouts/images/products/cart/product-2.jpg')}}" alt="product"
-                                                 width="60" height="60">
-                                        </a>
-                                    </figure>
-                                    <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                </div><!-- End .product -->
-                            </div><!-- End .cart-product -->
-
-                            <div class="dropdown-cart-total">
-                                <span>Total</span>
-
-                                <span class="cart-total-price">$160.00</span>
-                            </div><!-- End .dropdown-cart-total -->
+                            <div id="change-item-cart">
+                                @if(Session::has("Cart") != null)
+                                    <div class="select-items">
+                                        <table>
+                                            <tbody>
+                                            @foreach(Session::get('Cart')->products as $item)
+                                                <tr>
+                                                    <td class="si-pic"><img width="50" height="100" src="{{asset('storage/' . $item['productInfo']->image)}}" alt="Product image" ></td>
+                                                    <td class="si-text">
+                                                        <div class="product-selected">
+                                                            <h6>{{$item['productInfo']->name}}</h6>
+                                                            <p>{{number_format($item['productInfo']->price)}}VNĐ x {{$item['quanty']}}</p>
+                                                            <hr>
+                                                        </div>
+                                                    </td>
+                                                    <td class="si-close">
+                                                        <i class="icon-close" data-id="{{$item['productInfo']->id}}"></i>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="select-total">
+                                        <span>Total:</span>
+                                        <h5>{{number_format(Session::get('Cart')->totalPrice)}} VNĐ</h5>
+                                    </div>
+                                @endif
+                            </div>
 
                             <div class="dropdown-cart-action">
-                                <a href="/cart" class="btn btn-primary">View Cart</a>
+                                <a href="{{url('/List-Carts')}}" class="btn btn-primary">View Cart</a>
                                 <a href="/checkout" class="btn btn-outline-primary-2"><span>Checkout</span><i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .dropdown-cart-total -->
@@ -112,4 +96,34 @@
                 </div><!-- End .header-right -->
             </div><!-- End .container -->
         </div><!-- End .header-middle -->
+        <!-- Messenger Plugin chat Code -->
+        <div id="fb-root"></div>
+
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat">
+        </div>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "103542255281718");
+            chatbox.setAttribute("attribution", "biz_inbox");
+        </script>
+
+        <!-- Your SDK code -->
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml            : true,
+                    version          : 'v14.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     </header><!-- End .header -->

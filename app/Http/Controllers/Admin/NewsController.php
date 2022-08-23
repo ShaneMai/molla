@@ -16,8 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = DB::table('news')->select('*');
-        $news = $news->get();
+        $news = DB::table('news')->paginate(10,['*'], 'page', null);
 
         $pageName = 'Tên Trang - News';
 

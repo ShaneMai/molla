@@ -16,9 +16,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customer = DB::table('customers')->select('*');
-        $customer = $customer->get();
-
+        $customer = DB::table('customers')->paginate(10,['*'], 'page', null);
 
         return view('admin.customers.index', compact('customer'));
     }

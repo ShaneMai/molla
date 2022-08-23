@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('frontend.includes.head')
-
+@include('sweetalert::alert')
 <body>
     <div class="page-wrapper">
         @include('frontend.includes.header')

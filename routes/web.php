@@ -15,26 +15,22 @@ use App\Http\Controllers\Layout;
 |
 */
 // Frontend
-Route::get('/', function () {
-    return view('frontend.home.index');
-});
+Route::get('/', [Layout\HomeController::class,'index']);
 Route::get('/products', [Layout\ProductController::class,'index']);
+Route::get('/single-product/{id}', [Layout\ProductController::class,'show']);
 Route::get('/posts', [Layout\PostsController::class,'index']);
+Route::get('/posts-detail/{id}', [Layout\PostsController::class, 'show']);
 
-Route::get('/single-product', function () {
-    return view('frontend.single-product.single-product');
-});
 Route::get('/about-us', function () {
     return view('frontend.about-us.about-us');
 });
 Route::get('/contact-us', function () {
     return view('frontend.contact-us.contact-us');
 });
-Route::get('/posts', function () {
-    return view('frontend.posts.posts');
-});
-Route::get('/single-posts', function () {
-    return view('frontend.single-posts.single-posts');
+Route::post('contact-us/store', [Layout\ContactController::class,'store']);
+Route::get('contact-us/completed', [Layout\ContactController::class,'index']);
+Route::get('/posts_detail', function () {
+    return view('frontend.posts_detail.posts_detail');
 });
 Route::get('/wishlist', function () {
     return view('frontend.wishlist.wishlist');
@@ -42,9 +38,16 @@ Route::get('/wishlist', function () {
 Route::get('/checkout', function () {
     return view('frontend.checkout.checkout');
 });
-Route::get('/cart', function () {
-    return view('frontend.cart.cart');
-});
+
+Route::get('/Add-Cart/{id}', [Layout\CartController::class, 'AddCart']);
+Route::get('/Delete-Item-Cart/{id}', [Layout\CartController::class, 'DeleteItemCart']);
+
+Route::get('/List-Carts', [Layout\CartController::class, 'ViewListCart']);
+
+Route::get('/Delete-Item-List-Cart/{id}', [Layout\CartController::class, 'DeleteListItemCart']);
+
+Route::get('/Save-Item-List-Cart/{id}/{quanty}', [Layout\CartController::class, 'SaveListItemCart']);
+
 
 
 // Backend
@@ -52,7 +55,7 @@ Route::get('/cart', function () {
 Auth::routes();
 
 Route::group(['prefix'=>'/admin'], function (){
-    Route::get('/index', [Admin\DashboardController::class,'index']);
+    Route::get('/index', [Admin\DashboardController::class,'index'])->middleware('auth');
 
 });
 Route::group(['prefix'=>'/admin/news'], function (){
@@ -102,7 +105,7 @@ Route::group(['prefix'=>'/admin/banners'], function (){
     Route::post('/store', [Admin\BannerController::class,'store']);
     Route::get('/', [Admin\BannerController::class,'index']);
     Route::get('/edit/{id}', [Admin\BannerController::class, 'edit']);
-    Route::PUT('/update/{id}', [Admin\BannerController::class,'update']);
+    Route::PATCH('/update/{id}', [Admin\BannerController::class,'update']);
     Route::PATCH('/delete/{id}', [Admin\BannerController::class,'destroy']);
 });
 Route::group(['prefix'=>'/admin/bills'], function (){
@@ -137,3 +140,13 @@ Route::group(['prefix'=>'/admin/contacts'], function (){
     Route::PATCH('/update/{id}', [Admin\ContactController::class,'update']);
     Route::PATCH('/delete/{id}', [Admin\ContactController::class,'destroy']);
 });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser');

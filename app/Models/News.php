@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class News extends Model implements HasMedia
+class News extends Model
 {
     use HasFactory;
-    use HasMediaTrait;
     protected $table='news';
 
 }

@@ -16,8 +16,7 @@ class PostsCategoryController extends Controller
      */
     public function index()
     {
-        $postsCategory = DB::table('posts-categories')->select('*');
-        $postsCategory = $postsCategory->get();
+        $postsCategory = DB::table('posts-categories')->paginate(10,['*'], 'page', null);
 
 
         return view('admin.posts-category.category_index', compact('postsCategory'));

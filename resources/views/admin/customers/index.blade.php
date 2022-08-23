@@ -6,8 +6,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">DANH SÁCH KHÁCH HÀNG</h5>
-                        <button type="button" class="btn btn-info">
-                            <a href="/admin/customer/create" style="color: white">THÊM MỚI</a>
+                        <button type="button" class="btn btn-info" style="background: #3A688C">
+                            <a href="/admin/customers/create" style="color: white" >THÊM MỚI</a>
                         </button>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
@@ -43,10 +43,10 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-info"><a
-                                                    href="/admin/posts/edit/{{$row->id}}" style="color: white">Edit</a>
+                                            <button type="button" class="btn btn-info " style="background: #3A688C"><a
+                                                    href="/admin/customers/edit/{{$row->id}}" style="color: white">Edit</a>
                                             </button>
-                                            <form method="POST" action="/admin/contact/delete/{{$row->id}}">
+                                            <form method="POST" action="/admin/customers/delete/{{$row->id}}">
                                                 @method('PATCH')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -71,6 +71,8 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            {{$customer->links()}}
+
                         </div>
 
                     </div>

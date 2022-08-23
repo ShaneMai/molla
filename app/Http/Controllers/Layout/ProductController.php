@@ -16,9 +16,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = DB::table('products')->select('*');
-        $products = $products->get();
+        $products = DB::table('products')->paginate(12,['*'], 'page', null);
         return view('frontend.product.products', compact('products'));
+    }
+    public function newproducts()
+    {
+//        $products = DB::table('products')->select('*');
+//        $products = $products->get();
+//        return view('frontend.home.index', compact('products'));
     }
 
     /**
@@ -28,7 +33,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+//        return view('admin.products.create');
     }
 
     /**
@@ -61,7 +66,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $products = Product::where('id', '=', $id)->select('*')->first();
+        return view('frontend.single-product.single-product', compact('products'));
     }
 
     /**
@@ -73,7 +79,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::findOrFail($id);
-        return view('admin.products.update', compact('products'));
+        return view('frontend.single-product.single-product', compact('products'));
     }
 
     /**
@@ -110,5 +116,11 @@ class ProductController extends Controller
 
         $products->delete();
         return redirect()->action([ProductController::class, 'index']);
+    }
+
+    public function productFilter(Request $request){
+        $products = Product::query()
+            ->name($request);
+        return $products->get();
     }
 }

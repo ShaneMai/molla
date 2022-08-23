@@ -28,6 +28,7 @@
         "@tailwindcss/typography": "^0.5.2",
         "@tiptap/core": "^2.0.0-beta.181",
         "@tiptap/starter-kit": "^2.0.0-beta.190",
+        "sweetalert": "^2.1.2",
         "tinymce": "^6.1.0"
     }
 }

@@ -9,7 +9,7 @@
 
                         <div class="banner-content" >
                             <h3 class="banner-title" >Sức khỏe</h3>
-                            <a href="#" class="btn">SHOP NOW</a>
+                            <a href="/products" class="btn">SHOP NOW</a>
                         </div><!--End .banner-content-->
                     </figure><!--End .banner-->
                 </div><!--End .grid-item-->
@@ -21,7 +21,7 @@
 
                         <div class="banner-content">
                             <h3 class="banner-title">Xinh đẹp</h3>
-                            <a href="#" class="btn">SHOP NOW</a>
+                            <a href="/products" class="btn">SHOP NOW</a>
                         </div><!--End .banner-content-->
                     </figure><!--End .banner-->
                 </div><!--End .grid-item-->
@@ -33,7 +33,7 @@
 
                         <div class="banner-content">
                             <h3 class="banner-title">Sành điệu</h3>
-                            <a href="#" class="btn">SHOP NOW</a>
+                            <a href="/products" class="btn">SHOP NOW</a>
                         </div><!--End .banner-content-->
                     </figure><!--End .banner-->
                 </div><!--End .grid-item-->

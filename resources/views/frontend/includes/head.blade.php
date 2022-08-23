@@ -31,16 +31,17 @@
     <link rel="stylesheet" href="{{asset('layouts/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('layouts/css/demos/demo-31.css')}}">
 
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+{{--    <script>--}}
+{{--        WebFontConfig = {--}}
+{{--            google: { families: [ 'Poppins:300,400,500,600,700','Roboto:400,600','Amatic SC:700','Times New Roman:400'] }--}}
+{{--        };--}}
+{{--        (function(d) {--}}
+{{--            var wf = d.createElement('script'), s = d.scripts[0];--}}
+{{--            wf.src = '{{asset('layouts/js/webfont.js')}}';--}}
+{{--            wf.async = true;--}}
+{{--            s.parentNode.insertBefore(wf, s);--}}
+{{--        })(document);--}}
+{{--    </script>--}}
 
-    <script>
-        WebFontConfig = {
-            google: { families: [ 'Poppins:300,400,500,600,700','Roboto:400,600','Amatic SC:700','Times New Roman:400'] }
-        };
-        (function(d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = '{{asset('layouts/js/webfont.js')}}';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script>
 </head>

@@ -6,8 +6,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">DANH SÁCH BANNER</h5>
-                        <button type="button" class="btn btn-info">
-                            <a href="/admin/banners/create" style="color: white">THÊM MỚI</a>
+                        <button type="button" class="btn btn-info" style="background: #3A688C">
+                            <a href="/admin/banners/create" style="color: white" >THÊM MỚI</a>
                         </button>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
@@ -33,8 +33,8 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-info"><a
-                                                    href="/admin/banners/edit/{{$row->id}}" style="color: white">Edit</a>
+                                            <button type="button" class="btn btn-info" style="background: #3A688C"><a
+                                                    href="/admin/banners/edit/{{$row->id}}" style="color: white" >Edit</a>
                                             </button>
                                             <form method="POST" action="/admin/banners/delete/{{$row->id}}">
                                                 @method('PATCH')
@@ -56,12 +56,12 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            {{$banner->links()}}
                         </div>
-
                     </div>
                 </div>
+
             </div>
         </div>
-
     </div>
 @endsection

@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">POSTS CATEGORY</h5>
-                        <button type="button" class="btn btn-info">
+                        <button type="button" class="btn btn-info" style="background: #3A688C">
                             <a href="/admin/posts-category/create/" style="color: white">THÊM MỚI</a>
                         </button>
                         <div class="table-responsive">
@@ -31,7 +31,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-info"><a
+                                            <button type="button" class="btn btn-info" style="background: #3A688C"><a
                                                     href="/admin/posts-category/edit/{{$row->id}}" style="color: white">Edit</a>
                                             </button>
                                                 <form method="POST" action="/admin/posts-category/delete/{{$row->id}}" >
@@ -53,8 +53,8 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            {{$postsCategory->links()}}
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -6,8 +6,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">DANH SÁCH SẢN PHẨM</h5>
-                        <button type="button" class="btn btn-info">
-                            <a href="/admin/products/create" style="color: white">THÊM MỚI</a>
+                        <button type="button" class="btn btn-info" style="background: #3A688C">
+                            <a href="/admin/products/create" style="color: white" >THÊM MỚI</a>
                         </button>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
@@ -34,16 +34,16 @@
                                         <td><a href="/admin/products/{{$row->id}}">{{$row->name}}</a></td>
                                         <td>{{$row->information}}</td>
                                         <td>{{$row->description}}</td>
-                                        <td>{{$row->price}}</td>
+                                        <td>{{number_format($row->price)}}</td>
                                         <td><img height="200" width="300" src="{{asset('storage/' . $row->image)}}" alt=""></td>
                                         <td>{{$row->created_at}}</td>
                                         <td>{{$row->updated_at}}</td>
-                                        <td>@if($row->status === 1) {{'Mở'}}
+                                        <td>@if($row->status == 1) {{'Mở'}}
                                             @else {{'Khóa'}}
                                             @endif
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-info"><a
+                                            <button type="button" class="btn btn-info" style="background: #3A688C"><a
                                                     href="/admin/products/edit/{{$row->id}}" style="color: white">Edit</a>
                                             </button>
                                             <form method="POST" action="/admin/products/delete/{{$row->id}}">
@@ -71,8 +71,8 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            {{$products->appends(request()->all())->links()}}
                         </div>
-
                     </div>
                 </div>
             </div>

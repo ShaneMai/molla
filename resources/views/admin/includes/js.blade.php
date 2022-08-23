@@ -23,12 +23,21 @@
 <script src="{{asset('admin/assets/libs/flot/jquery.flot.crosshair.js')}}"></script>
 <script src="{{asset('admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
 <script src="{{asset('admin/dist/js/pages/chart/chart-page-init.js')}}"></script>
-<script src="{{asset('ckeditor/ckeditor.js') }}"></script>
-<script> CKEDITOR.replace( 'editor1', {
-        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
-        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
-        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+<script src={{ url('ckeditor/ckeditor.js') }}></script>
+<script>
+
+    CKEDITOR.replace( 'description', {
+        extraPlugins: 'easyimage',
+        cloudServices_tokenUrl: 'https://example.com/cs-token-endpoint',
+        cloudServices_uploadUrl: 'https://your-organization-id.cke-cs.com/easyimage/upload/',
+        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.php') }}',
+        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.php?type=Images') }}',
+        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.php?type=Flash') }}',
         filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
         filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
         filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
-    } ); </script>
+
+    } );
+</script>
+@include('ckfinder::setup')
+@yield('js')

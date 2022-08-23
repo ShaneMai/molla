@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
-use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BannerController extends Controller
 {
@@ -17,9 +17,7 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banner = DB::table('banners')->select('*');
-        $banner = $banner->get();
-
+        $banner = DB::table('banners')->paginate(10,['*'], 'page', null);
         return view('admin.banners.index', compact('banner'));
     }
 
@@ -50,7 +48,7 @@ class BannerController extends Controller
             $path = $request->file('image')->store('images', 'public');
             $banner->image = $path;
         }
-
+        alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.');
         $banner->save();
         return redirect()->action([BannerController::class, 'index']);
 
@@ -96,7 +94,7 @@ class BannerController extends Controller
             $path = $request->file('image')->store('images', 'public');
             $banner->image = $path;
         }
-
+        alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.');
         $banner->save();
         return redirect()->action([BannerController::class, 'index']);
     }
@@ -110,7 +108,7 @@ class BannerController extends Controller
     public function destroy($id)
     {
         $banner = Banner::find($id);
-
+        alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.');
         $banner->delete();
         return redirect()->action([BannerController::class, 'index']);
     }

@@ -16,8 +16,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->select('*');
-        $posts = $posts->get();
+        $posts = DB::table('posts')->paginate(9,['*'], 'page', null);
+
+
         return view('frontend.posts.posts', compact('posts'));
     }
 
@@ -45,14 +46,14 @@ class PostsController extends Controller
         $posts->images = $request->images;
         $posts->information = $request->information;
         $posts->description = $request->description;
-        $posts->created_at = $request->created_at;
         $posts->status = $request->status;
-
-        $posts->save();
-        if($request->hasFile('images') && $request->file('images')->isValid()){
-            $posts->addMediaFromRequest('images')->toMediaCollection('public.layouts.images.blog');
+        if ($request->hasFile('images')) {
+            $path = $request->file('images')->store('posts', 'public');
+            $posts->images = $path;
         }
-        return redirect()->action([PostsController::class, 'index']);
+        $posts->save();
+
+        return redirect()->action([\App\Http\Controllers\Layout\PostsController::class, 'index']);
     }
 
     /**
@@ -63,7 +64,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = Posts::where('id', '=', $id)->select('*')->first();
+        $description = html_entity_decode($posts->description);
+        return view('frontend.posts_detail.posts-detail', compact('posts', 'description'));
     }
 
     /**
@@ -74,7 +77,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts = Posts::findOrFail($id);
+        return view('frontend.posts.posts_update', compact('posts'));
     }
 
     /**

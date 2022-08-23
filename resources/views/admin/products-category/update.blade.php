@@ -20,7 +20,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 text-right control-label col-form-label">Mô tả</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="description"
+                                            <input type="text" class="form-control"
                                                    value="{{$productCategory->description}}" name="description">
                                         </div>
                                     </div>
@@ -39,12 +39,9 @@
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
-                                        <button type="submit" name="submit" class="btn btn-primary">Thêm mới</button>
-                                    </div>
-                                </div>
-                            <div class="border-top">
-                                    <div class="card-body">
-                                        <button type="submit" name="submit" class="btn btn-primary" href="/admin/product-category/">Hủy</button>
+                                        <button type="submit" name="submit" class="btn btn-primary">Cập nhật</button>
+                                        <button class="btn btn-danger" ><a href="/admin/product-category/" style="color: #f8f8f8">Hủy bỏ</a></button>
+
                                     </div>
                                 </div>
                         </div>

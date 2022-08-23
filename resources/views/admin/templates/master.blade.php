@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 @include('admin.includes.head')
+@include('sweetalert::alert')
 <body>
 <div class="preloader">
     <div class="lds-ripple">

@@ -26,8 +26,7 @@
                         </span><!--End .icon-box-icon-->
 
         <div class="icon-box-content">
-            <h3 class="icon-box-title">Payment &amp; Delivery</h3><!-- End .icon-box-title -->
-            <p>Free shipping for orders over $50</p>
+            <h3 class="icon-box-title">Vận chuyển đến mọi miền tổ quốc</h3><!-- End .icon-box-title -->
         </div><!-- End .icon-box-content -->
     </div><!-- End .icon-box-side -->
 
@@ -37,8 +36,7 @@
         </figure><!--End .icon-box-icon-->
 
         <div class="icon-box-content">
-            <h3 class="icon-box-title">Return &amp; Refund</h3><!-- End .icon-box-title -->
-            <p>Free 100% money back guarantee</p>
+            <h3 class="icon-box-title">Hoàn tiền 100% nếu sản phẩm lỗi</h3><!-- End .icon-box-title -->
         </div><!-- End .icon-box-content -->
     </div><!-- End .icon-box-side -->
 
@@ -48,8 +46,7 @@
         </figure><!--End .icon-box-icon-->
 
         <div class="icon-box-content">
-            <h3 class="icon-box-title">Quality Support</h3><!-- End .icon-box-title -->
-            <p>Alway online feedback 24/7</p>
+            <h3 class="icon-box-title">Hỗ trợ khách hàng 24/7</h3><!-- End .icon-box-title -->
         </div><!-- End .icon-box-content -->
     </div><!-- End .icon-box-side -->
 
@@ -59,8 +56,7 @@
         </figure><!--End .icon-box-icon-->
 
         <div class="icon-box-content">
-            <h3 class="icon-box-title">Join Our Newsletter</h3><!-- End .icon-box-title -->
-            <p>10% off by subscribing to our newsletter</p>
+            <h3 class="icon-box-title">Đăng ký nhận thông tin giảm giá</h3><!-- End .icon-box-title -->
         </div><!-- End .icon-box-content -->
     </div><!-- End .icon-box-side -->
 </div><!--End .icon-box-->

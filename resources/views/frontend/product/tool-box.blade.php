@@ -21,12 +21,6 @@
                     <a href="#" class="sidebar-toggler"><i class="icon-bars"></i>Filters</a>
                 </div><!-- End .toolbox-left -->
 
-                <div class="toolbox-center">
-                    <div class="toolbox-info">
-                        Showing <span>12 of 56</span> Products
-                    </div><!-- End .toolbox-info -->
-                </div><!-- End .toolbox-center -->
-
                 <div class="toolbox-right">
                     <div class="toolbox-sort">
                         <label for="sortby">Sort by:</label>

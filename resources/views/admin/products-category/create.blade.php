@@ -20,7 +20,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 text-right control-label col-form-label">Mô tả</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="description"
+                                        <input type="text" class="form-control"
                                                placeholder="Nhập thông tin chi tiết về sản phẩm" name="description">
                                     </div>
                                 </div>

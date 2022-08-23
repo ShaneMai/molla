@@ -1,6 +1,6 @@
 @extends('admin.templates.master')
 @section('content')
-    <form method="post" action="/admin/products/update/{{$products->id }}">
+    <form method="post" enctype="multipart/form-data" action="/admin/products/update/{{$products->id }}">
         @method('PATCH')
         @csrf
         <div class="page-wrapper">
@@ -11,13 +11,14 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Thêm thông tin sản phẩm</h4>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 text-right control-label col-form-label">loại sản phẩm</label>
+                                        <label class="col-sm-3 text-right control-label col-form-label">Loại sản phẩm</label>
                                         <div class="col-sm-9">
-                                            <select name="status" class="select2 form-control custom-select"
+                                            <select name="category_id" class="select2 form-control custom-select"
                                                     style="width: 100%; height:36px;">
                                                 <option>---Chọn---</option>
-                                                <option value="1">Chăm sóc sức khỏe</option>
-                                                <option value="2">Làm đẹp</option>
+                                                <option value="1">Sức khỏe</option>
+                                                <option value="2">Xinh đẹp</option>
+                                                <option value="3">Sành điệu</option>
                                                 </optgroup>
                                             </select>
                                         </div>
@@ -72,10 +73,7 @@
                                 <div class="border-top">
                                     <div class="card-body">
                                         <button type="submit" name="submit" class="btn btn-primary">Cập nhật</button>
-                                    </div>
-                                </div><div class="border-top">
-                                    <div class="card-body">
-                                        <button type="submit" name="submit" class="btn btn-primary" href="/admin/products/">Hủy</button>
+                                        <button class="btn btn-danger" ><a href="/admin/products/" style="color: #f8f8f8">Hủy bỏ</a></button>
                                     </div>
                                 </div>
                         </div>

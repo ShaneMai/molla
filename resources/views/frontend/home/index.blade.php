@@ -7,4 +7,6 @@
     @include('frontend.home.blog')
     @include('frontend.home.icon-support')
     @include('frontend.home.instagram')
+    @include('frontend.includes.popup')
 @endsection
+

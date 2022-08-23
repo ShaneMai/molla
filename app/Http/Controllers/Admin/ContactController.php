@@ -16,8 +16,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contact = DB::table('contact')->select('*');
-        $contact = $contact->get();
+        $contact = DB::table('contacts')->paginate(10,['*'], 'page', null);
         return view('admin.contact.index', compact('contact'));
 
     }
@@ -41,14 +40,11 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $contact = new Contact;
-        $contact->id = $request->id;
         $contact->name = $request->name;
         $contact->email = $request->email;
         $contact->phone_number = $request->phone_number;
         $contact->subject = $request->subject;
-        $contact->content = $request->content;
-        $contact->created_at = $request->created_at;
-        $contact->status = $request->status;
+        $contact->content = $request->contents;
 
         $contact->save();
 
@@ -92,8 +88,8 @@ class ContactController extends Controller
         $contact->email = $request->email;
         $contact->phone_number = $request->phone_number;
         $contact->subject = $request->subject;
-        $contact->content = $request->content;
-        $contact->created_at = $request->created_at;
+        $contact->content = $request->contents;
+        $contact->note = $request->note;
         $contact->status = $request->status;
 
         $contact->save();

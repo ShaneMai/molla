@@ -1,7 +1,7 @@
 @extends('admin.templates.master')
 @section('content')
-    <form method="post" enctype="multipart/form-data" action="/admin/banners/update/{{ $banner->id }}">
-        @method('PUT')
+    <form method="POST" enctype="multipart/form-data" action="/admin/banners/update/{{ $banner->id }}">
+        @method('PATCH')
         @csrf
         <div class="page-wrapper">
             <!-- ============================================================== -->
@@ -23,7 +23,7 @@
                                     <label class="col-sm-3 text-right control-label col-form-label">Hình ảnh</label>
                                     <div class="col-sm-9">
                                         <input type="file" class="form-control" id="image" name="image">
-                                        <img height="200" width="300" src="{{asset('storage/' . $row->image)}}" alt="">
+                                        <img height="200" width="300" src="{{asset('storage/' . $banner->image)}}" alt="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -43,7 +43,7 @@
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" name="submit" class="btn btn-primary">Cập nhật</button>
-                                    <button class="btn btn-danger" action="/admin/banners/store">Hủy bỏ</button>
+                                    <button class="btn btn-danger" ><a href="/admin/banners/" style="color: #f8f8f8">Hủy bỏ</a></button>
                                 </div>
                             </div>
                         </div>

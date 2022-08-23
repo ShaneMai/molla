@@ -1,6 +1,6 @@
 @extends('admin.templates.master')
 @section('content')
-    <form method="post" action="/admin/contact/update/{{ $contact->id }}">
+    <form method="post" action="/admin/contacts/update/{{ $contact->id }}">
         @method('PATCH')
         @csrf
         <div class="page-wrapper">
@@ -40,7 +40,13 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 text-right control-label col-form-label">Content</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control"  value="{{$contact->content}}" name="content">
+                                        <input type="text" class="form-control"  value="{{$contact->content}}" name="contents">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 text-right control-label col-form-label">Ghi chú</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  value="{{$contact->note}}" name="note">
                                     </div>
                                 </div>
 
@@ -49,8 +55,8 @@
                                     <div class="col-sm-9">
                                         <select name="status" class="select2 form-control custom-select" style="width: 100%; height:36px;">
                                             <option>---Chọn---</option>
-                                            <option value="1">Mở</option>
-                                            <option value="2">Khóa</option>
+                                            <option value="1">Đã tư vấn</option>
+                                            <option value="2">Chưa tư vấn</option>
                                             </optgroup>
                                         </select>
                                     </div>
@@ -59,7 +65,7 @@
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" name="submit" class="btn btn-primary">Cập nhật</button>
-                                    <button class="btn btn-danger" action="/admin/banner/store">Hủy bỏ</button>
+                                    <button class="btn btn-danger" action="/admin/contacts/store">Hủy bỏ</button>
                                 </div>
                             </div>
                         </div>

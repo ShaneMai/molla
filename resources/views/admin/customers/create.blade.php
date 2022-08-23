@@ -6,7 +6,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <form class="form-horizontal" method="post" enctype="multipart/form-data"
-                              action="/admin/customer/store">
+                              action="/admin/customers/store">
                             @csrf
                             <div class="card-body">
                                 <h4 class="card-title">Thêm thông tin khách hàng</h4>
@@ -80,6 +80,7 @@
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" name="submit" class="btn btn-primary">Thêm mới</button>
+                                    <button class="btn btn-danger" ><a href="/admin/customers/" style="color: #f8f8f8">Hủy bỏ</a></button>
                                 </div>
                             </div>
                         </form>

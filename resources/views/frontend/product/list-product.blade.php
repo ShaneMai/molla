@@ -6,30 +6,32 @@
             <div class="product">
                 <figure class="product-media">
                     <span class="product-label label-new">New</span>
-                    <a href="/products/">
-                        <img src="{{asset('layouts/images/products/product-1.jpg')}}" alt="Product image" class="product-image">
+                    <a href="/single-product/{{$row->id}}">
+                        <img src="{{asset('storage/' . $row->image)}}" alt="Product image" class="product-image">
                     </a>
 
                     <div class="product-action-vertical">
                         <a href="#"
-                           class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                           class="btn-product-icon btn-wishlist btn-expandable"><span>Add to wishlist</span></a>
                     </div><!-- End .product-action -->
 
                     <div class="product-action action-icon-top">
-                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
-                        <a href="#" class="btn-product btn-compare" title="Compare"><span>compare</span></a>
+                        <a onclick="AddCart({{$row->id}})" href="javascript:" class="btn-product btn-cart"><span>Add to cart</span></a>
+                        <a href="#" class="btn-product btn-quickview" title="Quick view"><span>Xem nhanh</span></a>
                     </div><!-- End .product-action -->
                 </figure><!-- End .product-media -->
 
                 <div class="product-body">
                     <div class="product-cat">
-                        <a href="#">Women</a>
+                        <a href="#">@if($row->category_id == 1) {{'Sức khỏe'}}
+                            @elseif($row->category_id == 2) {{'Xinh đẹp'}}
+                            @else{{'Sành điệu'}}
+                            @endif</a>
                     </div><!-- End .product-cat -->
                     <h3 class="product-title"><a href="#">{{$row->name}}</a></h3>
                     <!-- End .product-title -->
-                    <div class="product-price">
-                        {{$row->price}}
+                    <div class="product-price" >
+                        {{number_format($row->price)}} VNĐ
                     </div><!-- End .product-price -->
                     <div class="ratings-container">
                         <div class="ratings">
@@ -48,8 +50,12 @@
         </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
         @endforeach
     </div><!-- End .row -->
-    <div class="load-more-container text-center">
-        <a href="#" class="btn btn-outline-darker btn-load-more">More Products <i class="icon-refresh"></i></a>
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {{$products->links()}}
+        </ul>
+    </nav>
+
     </div><!-- End .load-more-container -->
 </div><!-- End .products -->
 

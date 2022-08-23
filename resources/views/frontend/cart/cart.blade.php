@@ -1,167 +1,51 @@
-@extends('frontend.templates.master')
-@section('content')
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <main class="main">
-        <div class="page-header text-center" style="background-image: url('{{asset('layouts/images/page-header-bg.jpg')}}">
-            <div class="container">
-                <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
-            </div><!-- End .container -->
-        </div><!-- End .page-header -->
-        <nav aria-label="breadcrumb" class="breadcrumb-nav">
-            <div class="container">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
-                </ol>
-            </div><!-- End .container -->
-        </nav><!-- End .breadcrumb-nav -->
+<div class="dropdown cart-dropdown" id="change-item-cart">
+    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+       aria-expanded="false" data-display="static">
+        <i class="icon-shopping-cart"></i>
+        <span class="cart-count">
+                                @if(Session::has("Cart") != null)
+                <span id="total-quanty-show">{{Session::get("Cart")->totalQuanty}}</span>
+            @else
+                <span id="total-quanty-show">0</span>
+            @endif
+                            </span>
+    </a>
 
-        <div class="page-content">
-            <div class="cart">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
+    <div class="dropdown-menu dropdown-menu-right">
+        <div id="change-item-cart">
+            @if(Session::has("Cart") != null)
+                <div class="select-items">
+                    <table>
+                        <tbody>
+                        @foreach(Session::get('Cart')->products as $item)
+                            <tr>
+                                <td class="si-pic"></td>
+                                <td class="si-text">
+                                    <div class="product-selected">
+                                        <h6>{{$item['productInfo']->name}}</h6>
+                                        <p>{{number_format($item['productInfo']->price)}}VNĐ x {{$item['quanty']}}</p>
+                                        <hr>
+                                    </div>
+                                </td>
+                                <td class="si-close">
+                                    <i class="icon-close" data-id="{{$item['productInfo']->id}}"></i>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="select-total">
+                    <span>Total:</span>
+                    <h5>{{number_format(Session::get('Cart')->totalPrice)}} VNĐ</h5>
+                </div>
+            @endif
+        </div>
 
-                                <tbody>
-                                <tr>
-                                    <td class="product-col">
-                                        <div class="product">
-                                            <figure class="product-media">
-                                                <a href="#">
-                                                    <img src="{{asset('layouts/images/products/table/product-1.jpg')}}" alt="Product image">
-                                                </a>
-                                            </figure>
-
-                                            <h3 class="product-title">
-                                                <a href="#">Beige knitted elastic runner shoes</a>
-                                            </h3><!-- End .product-title -->
-                                        </div><!-- End .product -->
-                                    </td>
-                                    <td class="price-col">$84.00</td>
-                                    <td class="quantity-col">
-                                        <div class="cart-product-quantity">
-                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                        </div><!-- End .cart-product-quantity -->
-                                    </td>
-                                    <td class="total-col">$84.00</td>
-                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-col">
-                                        <div class="product">
-                                            <figure class="product-media">
-                                                <a href="#">
-                                                    <img src="{{asset('layouts/images/products/table/product-2.jpg')}}" alt="Product image">
-                                                </a>
-                                            </figure>
-
-                                            <h3 class="product-title">
-                                                <a href="#">Blue utility pinafore denim dress</a>
-                                            </h3><!-- End .product-title -->
-                                        </div><!-- End .product -->
-                                    </td>
-                                    <td class="price-col">$76.00</td>
-                                    <td class="quantity-col">
-                                        <div class="cart-product-quantity">
-                                            <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                        </div><!-- End .cart-product-quantity -->
-                                    </td>
-                                    <td class="total-col">$76.00</td>
-                                    <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-                                </tr>
-                                </tbody>
-                            </table><!-- End .table table-wishlist -->
-
-                            <div class="cart-bottom">
-                                <div class="cart-discount">
-                                    <form action="#">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" required placeholder="coupon code">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
-                                            </div><!-- .End .input-group-append -->
-                                        </div><!-- End .input-group -->
-                                    </form>
-                                </div><!-- End .cart-discount -->
-
-                                <a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></a>
-                            </div><!-- End .cart-bottom -->
-                        </div><!-- End .col-lg-9 -->
-                        <aside class="col-lg-3">
-                            <div class="summary summary-cart">
-                                <h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
-
-                                <table class="table table-summary">
-                                    <tbody>
-                                    <tr class="summary-subtotal">
-                                        <td>Subtotal:</td>
-                                        <td>$160.00</td>
-                                    </tr><!-- End .summary-subtotal -->
-                                    <tr class="summary-shipping">
-                                        <td>Shipping:</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-
-                                    <tr class="summary-shipping-row">
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label" for="free-shipping">Free Shipping</label>
-                                            </div><!-- End .custom-control -->
-                                        </td>
-                                        <td>$0.00</td>
-                                    </tr><!-- End .summary-shipping-row -->
-
-                                    <tr class="summary-shipping-row">
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="standart-shipping" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label" for="standart-shipping">Standart:</label>
-                                            </div><!-- End .custom-control -->
-                                        </td>
-                                        <td>$10.00</td>
-                                    </tr><!-- End .summary-shipping-row -->
-
-                                    <tr class="summary-shipping-row">
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="express-shipping" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label" for="express-shipping">Express:</label>
-                                            </div><!-- End .custom-control -->
-                                        </td>
-                                        <td>$20.00</td>
-                                    </tr><!-- End .summary-shipping-row -->
-                                    <tr class="summary-total">
-                                        <td>Total:</td>
-                                        <td>$160.00</td>
-                                    </tr><!-- End .summary-total -->
-                                    </tbody>
-                                </table><!-- End .table table-summary -->
-
-                                <a href="/checkout" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a>
-                            </div><!-- End .summary -->
-
-                            <a href="/products" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
-                        </aside><!-- End .col-lg-3 -->
-                    </div><!-- End .row -->
-                </div><!-- End .container -->
-            </div><!-- End .cart -->
-        </div><!-- End .page-content -->
-    </main><!-- End .main -->
-
-@endsection
+        <div class="dropdown-cart-action">
+            <a href="{{url('/List-Carts')}}" class="btn btn-primary">View Cart</a>
+            <a href="/checkout" class="btn btn-outline-primary-2"><span>Checkout</span><i
+                    class="icon-long-arrow-right"></i></a>
+        </div><!-- End .dropdown-cart-total -->
+    </div><!-- End .dropdown-menu -->
+</div><!-- End .cart-dropdown -->

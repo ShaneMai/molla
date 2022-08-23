@@ -28,12 +28,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Mô tả tóm tắt</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="fname" placeholder="Mô tả tóm tắt về bài viết" name="information">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <label  class="col-sm-3 text-right control-label col-form-label">Hình ảnh</label>
                                     <div class="col-sm-9">
                                         <input type="file" class="form-control" id="images"  name="images">
@@ -42,7 +36,7 @@
                                 <div class="form-group row">
                                     <label for="fname" class="col-sm-3 text-right control-label col-form-label">Chi tiết bài viết</label>
                                     <div class="col-sm-9">
-                                        <textarea name="description" class="form-control " id="editor1" ></textarea>
+                                        <textarea name="description" class="form-control " id="description" ></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">

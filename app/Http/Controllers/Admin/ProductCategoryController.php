@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Scope;
 
 class ProductCategoryController extends Controller
 {
@@ -16,8 +18,7 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        $productCategory = DB::table('product-categories')->select('*');
-        $productCategory = $productCategory->get();
+        $productCategory = ProductCategory::query()->search()->paginate(10, ['*'], 'page', null);
         return view('admin.products-category.index', compact('productCategory'));
     }
 
@@ -34,18 +35,16 @@ class ProductCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $productCategory = new Product;
+        $productCategory = new ProductCategory;
         $productCategory->id = $request->id;
         $productCategory->name = $request->name;
         $productCategory->description = $request->description;
         $productCategory->status = $request->status;
-        $productCategory->created_at = $request->created_at;
-        $productCategory->updated_at = $request->updated_at;
 
         $productCategory->save();
         return redirect()->action([ProductCategoryController::class, 'index']);
@@ -54,7 +53,7 @@ class ProductCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -65,7 +64,7 @@ class ProductCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -77,19 +76,17 @@ class ProductCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $productCategory = Product::find($id);
+        $productCategory = ProductCategory::find($id);
         $productCategory->id = $request->id;
         $productCategory->name = $request->name;
         $productCategory->description = $request->description;
         $productCategory->status = $request->status;
-        $productCategory->created_at = $request->created_at;
-        $productCategory->updated_at = $request->updated_at;
 
         $productCategory->save();
         return redirect()->action([ProductCategoryController::class, 'index']);
@@ -98,14 +95,18 @@ class ProductCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $productCategory = ProductCategory::find($id);
+       $productCategory = ProductCategory::find($id);
+       if ($productCategory->products->count() >0 ){
+           return redirect()->action([ProductCategoryController::class,'index'])->with('Khong xoa duoc');
 
-        $productCategory->delete();
-        return redirect()->action([ProductCategoryController::class, 'index']);
+       }else {
+           $productCategory->delete();
+           return redirect()->action([ProductCategoryController::class, 'index'])->with('Xoa thanh cong');
+       }
     }
 }

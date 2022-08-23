@@ -1,5 +1,6 @@
 @extends('admin.templates.master')
 @section('content')
+    @include('sweetalert::alert')
     <div class="page-wrapper">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
@@ -39,6 +40,7 @@
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" name="submit" class="btn btn-primary">Thêm mới</button>
+                                    <button class="btn btn-danger" ><a href="/admin/baners/" style="color: #f8f8f8">Hủy bỏ</a></button>
                                 </div>
                             </div>
                         </form>

@@ -11,13 +11,14 @@
                             <div class="card-body">
                                 <h4 class="card-title">Thêm thông tin sản phẩm</h4>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 text-right control-label col-form-label">loại sản phẩm</label>
+                                    <label class="col-sm-3 text-right control-label col-form-label">Loại sản phẩm</label>
                                     <div class="col-sm-9">
                                         <select id= "category_id" name="category_id" class="select2 form-control custom-select"
                                                 style="width: 100%; height:36px;">
                                             <option>---Chọn---</option>
-                                            <option value="1">Chăm sóc sức khỏe</option>
-                                            <option value="2">Làm đẹp</option>
+                                            <option value="1">Sức khỏe</option>
+                                            <option value="2">Xinh đẹp</option>
+                                            <option value="3">Sành điệu</option>
                                             </optgroup>
                                         </select>
                                     </div>

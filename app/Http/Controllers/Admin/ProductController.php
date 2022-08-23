@@ -16,15 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = DB::table('products')->select('*');
-        $products = $products->get();
+        $products = DB::table('products')->paginate(10,['*'], 'page', null);
         return view('admin.products.index', compact('products'));
-    }
-    public function homeindex()
-    {
-        $products = DB::table('products')->select('*');
-        $products = $products->get();
-        return view('frontend.product.products', compact('products'));
     }
 
     /**
@@ -52,9 +45,11 @@ class ProductController extends Controller
         $products->information = $request->information;
         $products->description = $request->description;
         $products->price = $request->price;
-        $products->image = $request->image;
         $products->status = $request->status;
-
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
+            $products->image = $path;
+        }
         $products->save();
         return redirect()->action([ProductController::class, 'index']);
     }
@@ -92,14 +87,16 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $products = Product::find($id);
-        $products->category_id = $request->id;
+        $products->category_id = $request->category_id;
         $products->name = $request->name;
         $products->information = $request->information;
         $products->description = $request->description;
         $products->price = $request->price;
-        $products->image = $request->image;
         $products->status = $request->status;
-
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
+            $products->image = $path;
+        }
         $products->save();
         return redirect()->action([ProductController::class, 'index']);
     }

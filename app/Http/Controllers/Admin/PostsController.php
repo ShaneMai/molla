@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use App\Models\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,8 +17,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->select('*');
-        $posts = $posts->get();
+        $posts = DB::table('posts')->paginate(10,['*'], 'page', null);
 
 
         return view('admin.posts.posts_index', compact('posts'));
@@ -45,15 +45,14 @@ class PostsController extends Controller
         $posts->posts_category_id = $request->posts_category_id;
         $posts->posts_title = $request->posts_title;
         $posts->images = $request->images;
-        $posts->information = $request->information;
         $posts->description = $request->description;
-        $posts->created_at = $request->created_at;
         $posts->status = $request->status;
-
-        $posts->save();
-        if($request->hasFile('images') && $request->file('images')->isValid()){
-            $posts->addMediaFromRequest('images')->toMediaCollection('public.layouts.images.blog');
+        if ($request->hasFile('images')) {
+            $path = $request->file('images')->store('posts', 'public');
+            $posts->images = $path;
         }
+        $posts->save();
+
         return redirect()->action([PostsController::class, 'index']);
     }
 
@@ -65,7 +64,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = Posts::where('id', '=', $id)->select('*')->first();
+        $description = html_entity_decode($posts->description);
+        return view('admin.posts.posts_detail', compact('posts', 'description'));
     }
 
     /**
