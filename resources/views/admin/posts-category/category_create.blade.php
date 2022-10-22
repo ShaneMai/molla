@@ -1,6 +1,6 @@
 @extends('admin.templates.master')
 @section('content')
-    <div class="page-wrapper">
+    <div class="page-content">
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
@@ -39,7 +39,7 @@
                             </div>
                             <div class="border-top">
                                 <div class="card-body">
-                                    <button type="submit" name="submit" class="btn btn-primary">Thêm mới</button>
+                                    <button type="submit" name="submit" class="btn btn-success">Thêm mới</button>
                                 </div>
                             </div>
                         </form>

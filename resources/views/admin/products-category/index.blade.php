@@ -1,21 +1,34 @@
 @extends('admin.templates.master')
 @section('content')
-    <div class="page-wrapper">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">DANH MỤC SẢN PHẨM</h5>
-                        <button type="button" class="btn btn-info" style="background: #3A688C">
-                            <a href="/admin/product-category/create" style="color: white">THÊM MỚI</a>
-                        </button>
-                        <div class="table-responsive">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Danh sách Bộ sưu tập</h4>
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="customerList">
+                                <div class="row g-4 mb-3">
+                                    <div class="col-sm-auto">
+                                        <div>
+                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
+                                                    id="create-btn" data-bs-target="#showModal"><i
+                                                    class="ri-add-line align-bottom me-1"></i> <a
+                                                    href="/admin/product-category/create" style="color: white">Add</a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
                             <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                 <tr align="center">
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Total</th>
+                                    <th>Total Products</th>
                                     <th>Description</th>
                                     <th>Created Date</th>
                                     <th>Status</th>
@@ -25,31 +38,23 @@
                                 <tbody>
                                 @foreach($productCategory as $row)
                                     <tr align="center">
+                                        <td>{{$row->id}}</td>
                                         <td>{{$row->name}}</td>
                                         <td>{{$row->products ? $row->products->count() : 0 }}</td>
                                         <td>{{$row->description}}</td>
                                         <td>{{$row->created_at->format('d-m-Y')}}</td>
-                                        <td>@if($row->status == 1)
-                                                <span class="badge badge-success">Publish</span>
-                                            @else <span class="badge badge-danger">Private</span>
+                                        <td>@if($row->status == 1)<span
+                                                class="badge badge-soft-success text-uppercase">Mở</span>
+                                            @else <span
+                                                    class="badge badge-soft-danger text-uppercase">Khóa</span>
                                             @endif
                                         </td>
-                                        {{--                                        <td>--}}
-                                        {{--                                            <button type="button" class="btn btn-info" style="background: #3A688C"><a--}}
-                                        {{--                                                    href="/admin/product-category/edit/{{$row->id}}" style="color: white">Edit</a>--}}
-                                        {{--                                            </button>--}}
-                                        {{--                                            <form method="POST" action="/admin/product-category/delete/{{$row->id}}">--}}
-                                        {{--                                                @method('PATCH')--}}
-                                        {{--                                                @csrf--}}
-                                        {{--                                                <button type="submit" class="btn btn-danger">Delete</button>--}}
-                                        {{--                                            </form>--}}
-                                        {{--                                        </td>--}}
                                         <td>
-                                            <a href="/admin/product-category/edit/{{$row->id}}" class="btn btn-sm btn-success">
-                                                <i class="fas fa-edit"></i>
+                                            <a href="/admin/product-category/edit/{{$row->id}}"
+                                               class="btn btn-sm btn-success">Edit
                                             </a>
-                                            <a href="/admin/product-category/delete/{{$row->id}}" class="btn btn-sm btn-danger btndelete">
-                                                <i class="fas fa-trash"></i>
+                                            <a href="/admin/product-category/delete/{{$row->id}}"
+                                               class="btn btn-sm btn-danger btndelete"> Delete
                                             </a>
                                         </td>
                                     </tr>
@@ -59,7 +64,7 @@
                                 <tr align="center">
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Total</th>
+                                    <th>Total Products</th>
                                     <th>Description</th>
                                     <th>Created Date</th>
                                     <th>Status</th>
@@ -70,7 +75,7 @@
                             <form method="POST" action="" id="form-delete">
                                 @csrf @method('PATCH')
                             </form>
-                            {{$productCategory->links()}}
+                            {{$productCategory->appends(request()->all())->links()}}
                         </div>
                     </div>
                 </div>
@@ -79,15 +84,4 @@
 
     </div>
 @endsection
-@section('js')
-    <script>
-        $('.btndelete').click(function (ev){
-            ev.preventDefault();
-            var _href = $(this).attr('href');
-            $('form#form-delete').attr('action',_href);
-            if (confirm('Bạn có chắc chắn muốn xóa không ?')){
-                $('form#form-delete').submit();
-            }
-        })
-    </script>
-@stop
+

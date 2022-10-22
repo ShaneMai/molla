@@ -3,10 +3,7 @@
     <form method="post" action="/admin/customer/update/{{ $customer->id }}">
         @method('PATCH')
         @csrf
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+        <div class="page-content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
@@ -60,22 +57,22 @@
                                             <input type="text" class="form-control" id="note" value="{{$customer->note}}" name="note">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 text-right control-label col-form-label">Trạng thái</label>
-                                        <div class="col-sm-9">
-                                            <select name="status" class="select2 form-control custom-select" style="width: 100%; height:36px;">
-                                                <option>---Chọn---</option>
-                                                <option value="1">Mở</option>
-                                                <option value="2">Khóa</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
-                                    </div>
+{{--                                    <div class="form-group row">--}}
+{{--                                        <label class="col-sm-3 text-right control-label col-form-label">Trạng thái</label>--}}
+{{--                                        <div class="col-sm-9">--}}
+{{--                                            <select name="status" class="select2 form-control custom-select" style="width: 100%; height:36px;">--}}
+{{--                                                <option>---Chọn---</option>--}}
+{{--                                                <option value="1">Mở</option>--}}
+{{--                                                <option value="2">Khóa</option>--}}
+{{--                                                </optgroup>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="border-top">
                                     <td>
                                     <div class="card-body">
-                                        <button type="submit" name="submit" class="btn btn-primary">Thêm mới</button>
+                                        <button type="submit" name="submit" class="btn btn-success">Thêm mới</button>
                                     </div>
                                     </td>
                                     <td>

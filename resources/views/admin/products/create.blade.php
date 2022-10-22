@@ -1,6 +1,6 @@
 @extends('admin.templates.master')
 @section('content')
-    <div class="page-wrapper">
+    <div class="page-content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
@@ -9,7 +9,7 @@
                               action="/admin/products/store">
                             @csrf
                             <div class="card-body">
-                                <h4 class="card-title">Thêm thông tin sản phẩm</h4>
+                                <h4 class="card-title">Thêm mới thông tin sản phẩm</h4>
                                 <div class="form-group row">
                                     <label class="col-sm-3 text-right control-label col-form-label">Loại sản phẩm</label>
                                     <div class="col-sm-9">
@@ -72,7 +72,7 @@
                             </div>
                             <div class="border-top">
                                 <div class="card-body">
-                                    <button type="submit" name="submit" class="btn btn-primary">Thêm mới</button>
+                                    <button type="submit" name="submit" class="btn btn-success">Thêm mới</button>
                                 </div>
                             </div>
                         </form>

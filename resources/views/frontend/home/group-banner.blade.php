@@ -8,7 +8,7 @@
                         </a>
 
                         <div class="banner-content" >
-                            <h3 class="banner-title" >Sức khỏe</h3>
+                            <h5 class="banner-title">Sản phẩm hỗ trợ sức khỏe</h5>
                             <a href="/products" class="btn">SHOP NOW</a>
                         </div><!--End .banner-content-->
                     </figure><!--End .banner-->
@@ -20,7 +20,7 @@
                         </a>
 
                         <div class="banner-content">
-                            <h3 class="banner-title">Xinh đẹp</h3>
+                            <h4 class="banner-title">Sản phẩm làm đẹp</h4>
                             <a href="/products" class="btn">SHOP NOW</a>
                         </div><!--End .banner-content-->
                     </figure><!--End .banner-->
@@ -32,7 +32,7 @@
                         </a>
 
                         <div class="banner-content">
-                            <h3 class="banner-title">Sành điệu</h3>
+                            <h4 class="banner-title">Nước hoa</h4>
                             <a href="/products" class="btn">SHOP NOW</a>
                         </div><!--End .banner-content-->
                     </figure><!--End .banner-->

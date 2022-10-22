@@ -2,6 +2,7 @@
 @section('content')
     @include('frontend.home.intro-slider')
     @include('frontend.home.new-product')
+    @include('frontend.home.gift_box')
     @include('frontend.home.group-banner')
     @include('frontend.home.terminals')
     @include('frontend.home.blog')

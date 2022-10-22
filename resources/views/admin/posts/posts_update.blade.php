@@ -3,7 +3,7 @@
     <form method="post" enctype="multipart/form-data" action="/admin/posts/update/{{ $posts->id }}">
         @method('PATCH')
         @csrf
-        <div class="page-wrapper">
+        <div class="page-content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body" >
-                                        <button type="submit" name="submit" class="btn" style="background: #3A688C; color: #f8f8f8">Cập nhật</button>
+                                        <button type="submit" name="submit" class="btn btn-success" >Cập nhật</button>
                                         <button class="btn btn-danger" ><a href="/admin/posts/" style="color: #f8f8f8">Hủy bỏ</a></button>
                                     </div>
                                 </div>

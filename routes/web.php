@@ -96,6 +96,7 @@ Route::group(['prefix'=>'/admin/products'], function (){
     Route::get('/create', [Admin\ProductController::class,'create']);
     Route::post('/store', [Admin\ProductController::class,'store']);
     Route::get('/', [Admin\ProductController::class,'index']);
+    Route::get('/{id}', [Admin\ProductController::class, 'show']);
     Route::get('/edit/{id}', [Admin\ProductController::class, 'edit']);
     Route::PATCH('/update/{id}', [Admin\ProductController::class,'update']);
     Route::PATCH('/delete/{id}', [Admin\ProductController::class,'destroy']);
@@ -141,12 +142,15 @@ Route::group(['prefix'=>'/admin/contacts'], function (){
     Route::PATCH('/delete/{id}', [Admin\ContactController::class,'destroy']);
 });
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
     ->name('ckfinder_connector');
 
 Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
     ->name('ckfinder_browser');
+Route::get('setLocale/{locale}', function ($locale) {
+    if (in_array($locale, Config::get('app.locales'))) {
+        Session::put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('app.setLocale');
+

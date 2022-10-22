@@ -1,6 +1,6 @@
 @extends('admin.templates.master')
 @section('content')
-    <div class="page-wrapper">
+    <div class="page-content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
@@ -58,7 +58,7 @@
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit"
-                                            name="submit" class="btn btn-primary">Thêm mới</button>
+                                            name="submit" class="btn btn-success">Thêm mới</button>
                                     <button class="btn btn-danger" ><a href="/admin/contacts/" style="color: #f8f8f8">Hủy bỏ</a></button>
                                 </div>
                             </div>

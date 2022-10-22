@@ -3,7 +3,7 @@
     <form method="POST" enctype="multipart/form-data" action="/admin/banners/update/{{ $banner->id }}">
         @method('PATCH')
         @csrf
-        <div class="page-wrapper">
+        <div class="page-content">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->

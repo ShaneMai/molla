@@ -7,7 +7,7 @@
                             <li><a href="/" >Trang chủ</a></li>
                             <li><a href="/about-us" >Giới thiệu</a></li>
                             <li><a href="/products" >Sản phẩm</a></li>
-                            <li><a href="/posts">Blog</a></li>
+                            <li><a href="/posts">Cẩm nang</a></li>
                             <li><a href="/contact-us">Liên hệ</a></li>
                         </ul><!-- End .menu -->
                     </nav><!-- End .main-nav -->

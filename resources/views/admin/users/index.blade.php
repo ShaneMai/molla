@@ -36,14 +36,14 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-info " style="background: #3A688C"><a
-                                                    href="/admin/users/edit/{{$row->id}}" style="color: white">Edit</a>
-                                            </button>
-                                            <form method="POST" action="/admin/users/delete/{{$row->id}}">
-                                                @method('PATCH')
-                                                @csrf
-                                                <button type="submit"  class="btn btn-danger">Delete</button>
-                                            </form>
+                                            <a href="/admin/users/edit/{{$row->id}}"
+                                               class="btn btn-sm btn-success">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a href="/admin/users/delete/{{$row->id}}"
+                                               class="btn btn-sm btn-danger btndelete">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -60,7 +60,10 @@
                                 </tr>
                                 </tfoot>
                             </table>
-                            {{$user->links()}}
+                            <form method="POST" action="" id="form-delete">
+                                @csrf @method('PATCH')
+                            </form>
+                            {{$user->appends(request()->all())->links()}}
 
                         </div>
 

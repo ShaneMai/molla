@@ -1,89 +1,222 @@
 @extends('admin.templates.master')
 @section('content')
-    <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-12 d-flex no-block align-items-center">
-                    <h4 class="page-title">Trang quản trị</h4>
-                    <div class="ml-auto text-right">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
+    <div class="page-content">
         <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Start Page Content -->
-            <!-- ============================================================== -->
+
+            <!-- start page title -->
             <div class="row">
-                <!-- Column -->
-                <div class="col-md-6 col-lg-4" ><a ></a>
-                    <div class="card card-hover">
-                        <div class="box text-center" >
-                            <h1 class="font-light text-black"><i class="mdi mdi-view-dashboard"></i></h1>
-                            <h6 class="text-black"><a href="/admin/users/">Quản lý người dùng</a></h6>
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Dashboard</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
                         </div>
-                    </div>
-                </div>
-                <!-- Column -->
-                <div class="col-md-6 col-lg-4" >
-                    <div class="card card-hover" >
-                        <div class="box  text-center">
-                            <h1 class="font-light text-black"><i class="mdi mdi-chart-areaspline"></i></h1>
-                            <h6 class="text-black" ><a href="/admin/banners/">Quản lý banner</a></h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- Column -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-hover">
-                        <div class="box  text-center">
-                            <h1 class="font-light text-black"><i class="mdi mdi-collage"></i></h1>
-                            <h6 class="text-black"><a href="/admin/customers/">Quản lý thông tin khách hàng</a></h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- Column -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-hover">
-                        <div class="box  text-center">
-                            <h1 class="font-light text-black"><i class="mdi mdi-border-outside"></i></h1>
-                            <h6 class="text-black"><a href="/admin/products/">Quản lý sản phẩm</a></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" ><a ></a>
-                    <div class="card card-hover">
-                        <div class="box  text-center" >
-                            <h1 class="font-light text-black"><i class="mdi mdi-view-dashboard"></i></h1>
-                            <h6 class="text-black"><a href="/admin/posts/">Quản lý bài viết</a></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-hover">
-                        <div class="box text-center" >
-                            <h1 class="font-light text-black"><i class="mdi mdi-border-outside"></i></h1>
-                            <h6 class="text-black"><a href="/admin/bills/">Quản lý thông tin  hóa đơn</a></h6>
-                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </div>
+            <!-- end page title -->
+            <div class="row">
+                <div class="col">
+                    <div class="h-100">
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <!-- card -->
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Banners</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <a href="/admin/banners" class="text-decoration-underline">View detail</a>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class=" las la-image text-info"></i>
+                                                        </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
 
-@endsection
+                            <div class="col-xl-3 col-md-6">
+                                <!-- card -->
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                    Orders</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <a href="#" class="text-decoration-underline">View all orders</a>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class="bx bx-shopping-bag text-info"></i>
+                                                        </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+
+                            <div class="col-xl-3 col-md-6">
+                                <!-- card -->
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                    Customers</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <a href="/admin/customers" class="text-decoration-underline">View detail</a>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class="bx bx-user-circle text-info"></i>
+                                                        </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                            <div class="col-xl-3 col-md-6">
+                                <!-- card -->
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                    Contacts</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <a href="/admin/contacts" class="text-decoration-underline">View detail</a>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class=" las la-address-book text-info"></i>
+                                                        </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                            <div class="col-xl-3 col-md-6">
+                                <!-- card -->
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                    Products</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <a href="/admin/products" class="text-decoration-underline">View detail</a>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class="las la-hand-holding-heart text-info"></i>
+                                                        </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                            <div class="col-xl-3 col-md-6">
+                                <!-- card -->
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                    Posts</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <a href="/admin/posts" class="text-decoration-underline">View detail</a>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class="ri-file-text-line text-info"></i>
+                                                        </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                            <div class="col-xl-3 col-md-6">
+                                <!-- card -->
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                    Posts Categories</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <a href="/admin/posts-category" class="text-decoration-underline">View detail</a>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class="las la-newspaper text-info"></i>
+                                                        </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                            <div class="col-xl-3 col-md-6">
+                                <!-- card -->
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                    Product Categories</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div>
+                                                <a href="/admin/product-category" class="text-decoration-underline">View detail</a>
+                                            </div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class="las la-sitemap text-info"></i>
+                                                        </span>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+
+                        </div> <!-- end row-->
+                    </div> <!-- end .h-100-->
+
+                </div> <!-- end col -->
+
+            </div>
+
+        </div>
+        <!-- container-fluid -->
+    </div>@endsection

@@ -1,25 +1,28 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admin/assets/images/favicon.png')}}">
-    <title>Nyan Vũ - Admin</title>
-    <!-- Custom CSS -->
-    <link href="{{asset('admin/assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="{{asset('admin/dist/css/style.min.css')}}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="//cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
 
+    <meta charset="utf-8" />
+    <title>Nyan Vũ - Admin & Dashboard </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard " name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.png')}}">
 
-    <![endif]-->
+    <!--Swiper slider css-->
+    <link href="{{asset('admin/assets/libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <!-- jsvectormap css -->
+    <link href="{{asset('admin/assets/libs/jsvectormap/css/jsvectormap.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <!-- Layout config Js -->
+    <script src="{{asset('admin/assets/js/layout.js')}}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{{asset('admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{asset('admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{asset('admin/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{{asset('admin/assets/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+
 </head>

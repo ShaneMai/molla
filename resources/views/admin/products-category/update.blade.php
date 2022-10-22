@@ -3,13 +3,13 @@
     <form method="post" action="/admin/product-category/update/{{$productCategory->id }}">
         @method('PATCH')
         @csrf
-        <div class="page-wrapper">
+        <div class="page-content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Thêm thông tin loại sản phẩm</h4>
+                                    <h4 class="card-title">Chỉnh sửa thông tin bộ sưu tập</h4>
                                     <div class="form-group row">
                                         <label class="col-sm-3 text-right control-label col-form-label">Tên loại sản phẩm</label>
                                         <div class="col-sm-9">
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
-                                        <button type="submit" name="submit" class="btn btn-primary">Cập nhật</button>
+                                        <button type="submit" name="submit" class="btn btn-success">Cập nhật</button>
                                         <button class="btn btn-danger" ><a href="/admin/product-category/" style="color: #f8f8f8">Hủy bỏ</a></button>
 
                                     </div>

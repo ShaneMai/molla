@@ -101,6 +101,6 @@ class PostsCategoryController extends Controller
         $postsCategory = PostsCategory::find($id);
 
         $postsCategory->delete();
-        return redirect()->action([PostsController::class, 'index'])->with('success','Dữ liệu xóa thành công.');
+        return redirect()->action([PostsCategoryController::class, 'index'])->with('success','Dữ liệu xóa thành công.');
     }
 }

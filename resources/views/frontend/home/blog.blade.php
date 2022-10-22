@@ -2,7 +2,7 @@
 <hr class="mt-6">
 <div class="blog-posts">
     <div class="container">
-        <h2 class="title text-center">Nyan Vũ Blog</h2><!-- End .title-lg text-center -->
+        <h2 class="title text-center">Cẩm nang</h2><!-- End .title-lg text-center -->
 
         <div class="owl-carousel owl-simple carousel-with-shadow" data-toggle="owl"
              data-owl-options='{
